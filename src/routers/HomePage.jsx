@@ -14,7 +14,10 @@ export function HomePage(){
   return (
     <main>
       <Header />
+      <h1>banner</h1>
       <Main />
+      <h1>sobre</h1>
+      <h1>footer</h1>
     </main>
   );
 
