@@ -1,8 +1,9 @@
 {
-  "name": "loja-de-roupa-2",
+  "name": "E-Commerce-Story",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://henriquescloud.github.io/E-Commerce-Story",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
