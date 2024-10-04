@@ -1,26 +1,39 @@
 import "./index.scss";
 
 function FiltroGenero() {
+  function selectedFiltroGenre() {
+    const li = document.querySelectorAll(".filtro__genre-btn");
+    li.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        li.forEach((item) => {
+          item.classList.remove("filtro__genre-btn--ativo");
+        });
+        const btn = event.target;
+        btn.classList.add("filtro__genre-btn--ativo");
+      });
+    });
+  }
+
   return (
     <section className="filtro__genre-section">
-      <h1 className="filtro__genre-title">Gênero Musical</h1>
       <ul className="filtros__genres">
-        <li className="filtro__genre-btn filtro__genre-btn--ativo">Todos</li>
-        <li className="filtro__genre-btn">Pop</li>
-        <li className="filtro__genre-btn">MPB</li>
-        <li className="filtro__genre-btn">Forró</li>
-        <li className="filtro__genre-btn">Samba</li>
-        <li className="filtro__genre-btn">Baião</li>
-        <li className="filtro__genre-btn">Rap</li>
-        <li className="filtro__genre-btn">Jazz</li>
-        <li className="filtro__genre-btn">R&B</li>
-        <li className="filtro__genre-btn">Rock</li>
-        <li className="filtro__genre-btn">Reggae</li>
-        <li className="filtro__genre-btn">Eletrônica</li>
-        <li className="filtro__genre-btn">Hip-Hop</li>
+        <button className="filtro__genre-btn filtro__genre-btn--ativo" onClick={()=> selectedFiltroGenre()}>Todos</button>
+        <button className="filtro__genre-btn">Pop</button>
+        <button className="filtro__genre-btn">MPB</button>
+        <button className="filtro__genre-btn">Forró</button>
+        <button className="filtro__genre-btn">Samba</button>
+        <button className="filtro__genre-btn">Baião</button>
+        <button className="filtro__genre-btn">Rap</button>
+        <button className="filtro__genre-btn">Jazz</button>
+        <button className="filtro__genre-btn">R&B</button>
+        <button className="filtro__genre-btn">Rock</button>
+        <button className="filtro__genre-btn">Reggae</button>
+        <button className="filtro__genre-btn">Eletrônica</button>
+        {/* <button className="filtro__genre-btn">Hip-Hop</button> */}
       </ul>
     </section>
   );
 }
 
 export default FiltroGenero;
+  
