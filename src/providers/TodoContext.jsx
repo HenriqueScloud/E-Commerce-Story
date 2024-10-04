@@ -6,13 +6,30 @@ export const TodoProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
 
   const [OnModal, setOnModal] = useState(false);
-  
+
+  const removeQtd = (item) => {
+    if (item.qtd < 2) {
+      const updateList = cartList.filter((i) => i.id != item.id);
+      return setCartList([...updateList]);
+    }
+    const index = cartList.findIndex((i) => i.id === item.id);
+    const updatedItem = { ...cartList[index], qtd: cartList[index].qtd - 1 };
+    setCartList([
+      ...cartList.slice(0, index),
+      updatedItem,
+      ...cartList.slice(index + 1),
+    ]);
+  };
 
   const addItemCardList = (item) => {
     if (cartList.some((i) => i.id == item.id)) {
-      console.log('ja existe');
-
-      setCartList([...cartList, { ...item, qtd: item.qtd + 1 }]);
+      const index = cartList.findIndex((i) => i.id === item.id);
+      const updatedItem = { ...cartList[index], qtd: cartList[index].qtd + 1 };
+      setCartList([
+        ...cartList.slice(0, index),
+        updatedItem,
+        ...cartList.slice(index + 1),
+      ]);
     } else {
       setCartList([...cartList, { ...item }]);
     }
@@ -33,6 +50,7 @@ export const TodoProvider = ({ children }) => {
         setCartList,
         addItemCardList,
         delItemCardList,
+        removeQtd,
       }}
     >
       {children}
